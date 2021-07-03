@@ -35,7 +35,7 @@ app.use(session());
 app.use(flash())
 
 const STORE = new SessionStore ({
-     uri:'mongodb://localhost:27017/chat-app',
+     uri:config.DB_URL,
      collection: 'sessions'
 
 })
@@ -104,6 +104,9 @@ app.use((req, res,next)=>{
     })
 })
 
-server.listen(3000, (err)=>{
+
+const port  = process.env.PORT || 3000
+
+server.listen(port, (err)=>{
     console.log("Listening from port 3000");
 })
