@@ -27,6 +27,7 @@ require('./sockets/home.socket')(io)
 require('./sockets/chat.socket')(io)
 require('./sockets/group.socket')(io)
 
+const config = require('./config.json');
 
 app.use (express.static(path.join(__dirname, 'assets')))
 app.use(express.static(path.join(__dirname, 'images')))
