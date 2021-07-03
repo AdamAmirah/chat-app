@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/create-group.css">
+
+    <title><%= page %> </title>
+</head>
+<body>
+
+<%- include("parts/navbar")  %> 
+<form method="POST" action="/group/create-group" enctype="multipart/form-data">
+<div class="container">
+  <i> <h3>Create Group</h3> </i>
+  <ul class = "ul-create-group">
+    <li>
+        <span class="number"> <i class="fas fa-angle-double-right"></i> </span>
+        <span class="name">Group Name</span>
+        <span class="group-name"><input type="text" name='groupName' placeholder="Enter group name"></span>
+    </li>
+    <li>
+      <span class="number"> <i class="fas fa-angle-double-right"></i> </span>
+      <span class="name">Group Picture</span>
+      <input type="file" style="height: 35px; width: 200px;" name="image" class="form-control" placeholder="Image">
+   </li>
+  <%for(friend of friends ) { %> 
+    <li>
+        <span class="number"> <i class="fas fa-angle-double-right"></i> </span>
+        <span class="name"><%=friend.name%></span>
+        <span class="email"><%=friend.email%></span>
+        <span id="checkbox"><input name ="<%=friend.id%>" type="checkbox"></span>
+    </li>
+  <% } %> 
+     
+   </ul>  
+
+</div>
+
+<div class="form">
+        <input type="submit" name="Create" id="create-btn">
+</div>
+</form>
+
+<%-include("parts/scripts")%> 
+
+</body>
+</html>

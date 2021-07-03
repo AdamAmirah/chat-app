@@ -1,0 +1,31 @@
+<%- include("parts/header")  %> 
+<%- include("parts/navbar")  %> 
+
+<div class="container">
+    <div id = "home-title">
+        <i><h3>Groups</h3></i>
+    </div>
+  
+    <div id="onlineFriends">
+        <% if(groups.length === 0) {%> 
+        <br>
+        <p class ='alert alert-danger'> You Don't Have Groups. </p>
+        <% } else {%>
+            <div id="card" class ='row justify-content-md-center mainOnlineUsers'>
+                <%for(let group of groups){%> 
+                    <div class= 'col col-12 col-md-6 col-lg-3 onlineUsers'>
+                        <!-- <img id="proImage" src="/<%#=friend.image%>" alt="">  -->
+                        <div class= "proName">
+                          <h3><%=group.name%></h3>
+                          <a href='group/chat/<%=group._id%>' ><button>Chat</button> </a>
+                        </div>
+                    </div>
+                <% } %> 
+            </div>
+        <% } %>  
+    </div>
+</div>
+<%-include("parts/scripts")%> 
+
+</body>
+</html>

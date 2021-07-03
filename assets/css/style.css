@@ -1,0 +1,130 @@
+body {
+  background-color: #457b9d;
+}
+
+/* img {
+  background-size: 300px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 300px;
+  position: relative;
+  width: 300px;
+  padding: 20px;
+} */
+#btn-card {
+  background-color: #d8515c;
+  border-color: rgba(128, 128, 128, 0.664);
+  align-items: center;
+  margin-top: 10px;
+}
+#navbar {
+  background-color: #1d3557;
+}
+.nav-link.active {
+  color: #a8dadc !important;
+}
+.nav-link {
+  color: #f1faee !important;
+}
+#logout {
+  background-color: #e63946;
+}
+#dropdownBtn {
+  background-color: #f1faee !important;
+  color: #000;
+}
+#dropdownBtnRed {
+  background-color: #e63946 !important;
+}
+#home-title {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 0 0;
+  align-items: space-between;
+}
+#home-title button {
+  margin-left: 50px;
+  text-decoration: none;
+  outline: none;
+  border-radius: 4px;
+  border: 0px solid;
+  height: 35px;
+  width: 90px;
+  font-size: 0.8rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#proImage {
+  background-size: 300px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 150px;
+  position: relative;
+  width: 150px;
+  padding: 0 20px 20px 0px;
+}
+
+/* .proName {
+  display: flex;
+} */
+
+.proName h3 {
+  color: #1d3557;
+  margin-left: 10px;
+  margin-top: 3px;
+  margin-bottom: 30px;
+}
+
+.proName a {
+  color: #f1faee;
+}
+
+/* #onlineFriends {
+} */
+
+.onlineUsers {
+  display: flex;
+  background-color: #a8dadc;
+  justify-content: center;
+  margin-left: 40px;
+  margin-top: 50px;
+  border-radius: 20px;
+}
+
+button {
+  margin-right: 10px;
+  background-color: #d8515c;
+}
+.proName button {
+  background-color: #d8515c;
+  align-items: center;
+  margin-top: 10px;
+  text-decoration: none;
+  outline: none;
+  border-radius: 4px;
+  border: 0px solid;
+  height: 40px;
+  width: 100px;
+}
+
+.col {
+  padding-bottom: 20px;
+  padding-top: 50px;
+}
+.card {
+  background-color: #f0ebf4;
+}
+
+.row form {
+  text-align: center;
+}
+
+#filter {
+  align-items: center;
+  margin-top: 50px;
+}
+#filter input {
+  background-color: #edb5bf;
+  border-color: rgba(128, 128, 128, 0.664);
+  margin-top: 20px;
+}

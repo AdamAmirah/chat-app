@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/chatStyle.css">
+
+
+
+    <title><%= page %> </title>
+</head>
+<body>
+<%- include("parts/navbar")  %> 
+
+
+<div class="chat-container">
+    <input type="hidden" id="chatId" value= "<%=chatId%>">
+    <input type="hidden" id="friendname" value="<%=friendData.username%>">
+    <input type="hidden" id="friendId" value="<%=friendData.id%>">
+
+    <header class="chat-header">
+      <h1><i class="fas fa-smile"></i> Chat</h1>
+      <form method="POST">
+        <input type="hidden" name="friendId" value="<%=friendData.id%>">
+        <input type="hidden" name="chatId" value= "<%=chatId%>">
+        <input type="hidden" name="myId" value= "<%=isLogged%>">
+
+      <input  type="submit" formaction ="/chat/delete" class="chat-btn"  id="deleteBtn" value ="Delete Friend">
+    </form>
+    </header>
+    <main class="chat-main">
+      <div class="chat-sidebar">
+        <h3><i class="fas fa-comments"></i> Friend Name:</h3>
+        <a href="/profile/<%=friendData.id%>"><h2 id="room-name"><%= friendData.username%></h2></a>
+        <img src="/<%=friendData.image%>" id="proImage" alt="">
+      </div>
+      <div id='messages-container' class="chat-messages">
+          <% for(let message of messages ){ %> 
+        
+               <% if(String(message.sender) === String(friendData.id) ) {%>
+                    <div class="message">
+                        <p id="friendName" class="meta"><%=friendData.username%>  <span id="timestamp"><%=message.timestamp%></span></p>
+                        <p id="content" class="text">
+                            <%=message.content%> 
+                        </p>
+                    </div>
+               <% } else {%>
+                    <div class="message">
+                        <p class="meta"> Me <span id="timestamp"><%=message.timestamp%></span></p>
+                        <p id="content" class="text">
+                            <%=message.content%> 
+                        </p>
+                    </div>
+               <% } %> 
+          <% } %> 
+      </div>
+    </main>
+    <div class="chat-form-container">
+      <form id="chat-form">
+        <input
+          id="msg"
+          type="text"
+          placeholder="Enter Message"
+          required
+          autocomplete="off"
+        />
+        <button id="sendbtn" class="chat-btn"><i class="fas fa-paper-plane"></i> Send</button>
+      </form>
+    </div>
+  </div>
+
+
+<%-include("parts/scripts")%> 
+<script src="/sockets/chat.js"></script>
+
+</body>
+</html>

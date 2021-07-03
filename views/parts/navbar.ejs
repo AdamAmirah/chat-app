@@ -1,0 +1,63 @@
+<nav id= "navbar" class="navbar navbar-expand-md navbar-dark">
+        <div class="container">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <% if(isLogged){%> 
+                    <li id= "nav-item-color" class="nav-item">
+                      <a <% if (page === "home"){ %>  class="nav-link active" <%  } else { %>  class="nav-link" <%}%> aria-current="page" href="/">Home</a>
+                    </li>
+                    <% } %> 
+                    <% if(!isLogged){%> 
+                    <li id= "nav-item-color" class="nav-item">
+                      <a <% if (page === "signUp"){ %>  class="nav-link active" <%  } else { %>  class="nav-link" <%}%> href="/signup">Signup</a>
+                    </li>
+                    <li class="nav-item">
+                      <a <% if (page === "login"){ %>  class="nav-link active" <%  } else { %>  class="nav-link" <%}%> href="/login">Login</a>
+                    </li>
+                    <% } %> 
+
+                    <% if(isLogged){%> 
+                      <li class="nav-item">
+                        <a  <% if (page === "Groups"){ %>  class="nav-link active" <%  } else { %>  class="nav-link" <%}%> href="/group">Groups</a>
+                      </li>
+                    <li class="nav-item">
+                      <a  <% if (page === "Profile"){ %>  class="nav-link active" <%  } else { %>  class="nav-link" <%}%> href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                      <a  <% if (page === "Friends"){ %>  class="nav-link active" <%  } else { %>  class="nav-link" <%}%> href="/friend">Friends</a>
+                    </li>
+                    <%} %> 
+                  </ul>
+                  <%# console.log(isLogged) %>  
+                  <% if(isLogged){%> 
+                    <input id= "userId" type="hidden" value="<%=isLogged%>">
+
+                    <div class="dropdown">
+                      <button id="dropdownBtn" class="btn btn-secondary dropdown-toggle" type="button" id="friendRequestsdropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Friend Requests
+                      </button>
+                      <ul id= "friendRequest" class="dropdown-menu" aria-labelledby="friendRequestsdropdown">
+                        <% count =0 %> 
+                        <% for (let request of friendRequests) { %>
+                          <% count++ %> 
+                        <li><a class="dropdown-item" href="/profile/<%=request.id %>"><%=request.name%> </a></li>
+                        
+                        <% } %> 
+                        <% if(count === 0) {%>
+                          <li><a class="dropdown-item"><span>No Requests </span> </a></li>
+                        <% } %> 
+                      </ul>
+                    </div>
+
+                  <form action="/logout" method="POST">
+                    <input id='logout' type="submit" value="Logout" class="btn btn-danger">
+                  </form>
+                  <% } %> 
+                </div>
+              </div>
+        </div>
+      </nav>

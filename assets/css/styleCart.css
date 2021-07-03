@@ -1,0 +1,26 @@
+body {
+  background-color: #c1c8e4;
+}
+
+img {
+  background-size: 300px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 100px;
+  position: relative;
+  width: 100px;
+  margin-top: 0px;
+}
+#navbar {
+  background-color: #1f2833;
+}
+
+#btn-card {
+  background-color: #edb5bf;
+  border-color: rgba(128, 128, 128, 0.664);
+  align-items: center;
+  margin-top: 10px;
+}
+.row form {
+  text-align: center;
+}

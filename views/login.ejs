@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Login</title>
+</head>
+<body>
+<%-include("parts/navbar")%>
+
+
+<div style="margin-top: 50px;" class="container text-center">
+    <h3>Login</h3>
+    <% let emailError=[] ,passwordError=[]%>
+    <% for(let error of validationErrors) { %>
+        <% if(error.param === 'email'){%>
+                <% emailError.push(error.msg) }%>   
+        <% if(error.param === 'password'){%>
+                <% passwordError.push(error.msg) }%>     
+    <% } %>  
+        <form action="/login" method="POST">
+            <input style="margin-top: 30px;" type="email" name="email" placeholder="E-mail" class="form-control">
+            <% for(let i=0; i<emailError.length; i++) {%>
+                <p style= "margin-top: 5px; margin-bottom: 0px; height: 30px; padding: 0px;" class="alert alert-danger"><%=emailError[i]%></p>
+            <% } %> 
+            <input style="margin-top: 30px;" type="password" name="password" placeholder="Password" class="form-control">
+            <% for(let i=0; i<passwordError.length; i++) {%>
+                <p style= "margin-top: 5px; margin-bottom: 0px; height: 30px; padding: 0px;" class="alert alert-danger"><%=passwordError[i]%></p>
+            <% } %> 
+            <input style="margin-top: 30px;" type="submit" value="Login"  id = "btn-card" class="btn btn-warning btn-lg">
+        </form>
+        <% if(authErro){ %>
+            <p style= "margin-top: 10px;" class="alert alert-danger"><%=authErro %> </p>
+        <% } %>  
+        <br>
+        <div>
+            You don't have an account ? <a href="/signup">Create an account</a>
+        </div>
+</div>
+
+<%-include("parts/scripts")%> 
+
+</body>
+</html>
